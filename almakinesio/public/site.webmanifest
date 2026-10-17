@@ -1,0 +1,17 @@
+{
+  "name": "Almakinesio — Laetitia Sanchez",
+  "short_name": "Almakinesio",
+  "description": "Kinésiologie à Llíria, Valencia",
+  "lang": "fr",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F4F0E6",
+  "theme_color": "#173F3D",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

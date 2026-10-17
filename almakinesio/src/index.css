@@ -1,0 +1,2100 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Manrope:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+:root {
+  --ink: #173f3d;
+  --ink-soft: #335b56;
+  --wine: #831d43;
+  --cream: #f4f0e6;
+  --paper: #fbf9f3;
+  --sage: #a8bba8;
+  --sage-light: #dce4d7;
+  --sage-pale: #e4e9df;
+  --sage-mobile: #dfe7dc;
+  --sage-text: #59706c;
+  --sage-muted: #71827f;
+  --sage-deep: #46635f;
+  --sage-card: #657874;
+  --sage-number: #799089;
+  --sage-footer: #8da7a0;
+  --sage-footer-bright: #9fb6af;
+  --sage-on-dark: #aac1ba;
+  --rose-on-dark: #d4a9b7;
+  --gold: #c8913f;
+  --footer: #0f302f;
+  --line: rgba(23, 63, 61, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  color: inherit;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.site-shell {
+  overflow: hidden;
+}
+
+.header {
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(251, 249, 243, 0.9);
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  height: 88px;
+  left: 0;
+  padding: 0 4.5vw;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 50;
+}
+
+.brand {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  gap: 13px;
+  padding: 0;
+  text-align: left;
+  width: max-content;
+}
+
+.brand-logo {
+  display: block;
+  height: 58px;
+  object-fit: contain;
+  width: 150px;
+}
+
+.brand-mark {
+  align-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50% 50% 44% 56%;
+  display: inline-flex;
+  font-family: "Fraunces", serif;
+  font-size: 17px;
+  height: 43px;
+  justify-content: center;
+  letter-spacing: -2px;
+  transform: rotate(-6deg);
+  width: 43px;
+}
+
+.brand > span:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand b {
+  font-family: "Fraunces", serif;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.brand small {
+  font-size: 9px;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: clamp(20px, 2.2vw, 42px);
+}
+
+.nav button {
+  background: transparent;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  padding: 12px 0;
+  position: relative;
+}
+
+.nav button::after {
+  background: var(--wine);
+  bottom: 7px;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s ease;
+  width: 100%;
+}
+
+.nav button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.header-actions {
+  align-items: center;
+  display: flex;
+  gap: 25px;
+  justify-content: flex-end;
+}
+
+.language {
+  align-items: center;
+  display: flex;
+  font-size: 11px;
+  gap: 5px;
+}
+
+.language button {
+  background: transparent;
+  color: var(--sage);
+  font-size: 11px;
+  padding: 5px 2px;
+}
+
+.language button.active {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.nav-booking,
+.primary-button {
+  align-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  display: inline-flex;
+  font-size: 11px;
+  gap: 20px;
+  justify-content: center;
+  letter-spacing: 0.06em;
+  min-height: 46px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.nav-booking:hover,
+.primary-button:hover {
+  background: var(--wine);
+  transform: translateY(-2px);
+}
+
+.nav-booking svg,
+.primary-button svg,
+.secondary-button svg,
+.text-link svg {
+  fill: none;
+  height: 16px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 16px;
+}
+
+.menu-toggle,
+.mobile-booking {
+  display: none;
+}
+
+.hero {
+  background:
+    linear-gradient(105deg, rgba(244, 240, 230, 0.86) 0 52%, rgba(228, 233, 223, 0.75) 52% 100%),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+  display: grid;
+  grid-template-columns: 53% 47%;
+  min-height: 100svh;
+  overflow: hidden;
+  padding-top: 88px;
+  position: relative;
+}
+
+.hero-copy {
+  align-self: center;
+  max-width: 790px;
+  padding: 7vh 4vw 7vh 8vw;
+  position: relative;
+  z-index: 3;
+}
+
+.kicker {
+  align-items: center;
+  color: var(--wine);
+  display: flex;
+  font-size: 11px;
+  font-weight: 600;
+  gap: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.kicker::before {
+  background: currentColor;
+  content: "";
+  height: 1px;
+  width: 30px;
+}
+
+.hero-kicker {
+  animation: fade-up 0.8s 0.1s both;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+}
+
+h1 {
+  animation: fade-up 0.9s 0.22s both;
+  font-size: clamp(55px, 6.15vw, 104px);
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  margin: 32px 0 30px;
+}
+
+h1 em {
+  color: var(--wine);
+  font-weight: 400;
+}
+
+.hero-copy > p {
+  animation: fade-up 0.8s 0.36s both;
+  color: var(--ink-soft);
+  font-size: clamp(15px, 1.15vw, 18px);
+  max-width: 570px;
+}
+
+.text-link {
+  align-items: center;
+  animation: fade-up 0.8s 0.5s both;
+  background: transparent;
+  border-bottom: 1px solid var(--ink);
+  display: flex;
+  font-size: 12px;
+  gap: 45px;
+  letter-spacing: 0.08em;
+  margin-top: 38px;
+  padding: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.text-link svg {
+  transition: transform 0.3s ease;
+}
+
+.text-link:hover svg {
+  transform: translateX(7px);
+}
+
+.portrait-wrap {
+  align-self: end;
+  animation: portrait-in 1.15s 0.25s both;
+  height: calc(100svh - 88px);
+  min-height: 610px;
+  position: relative;
+}
+
+.portrait-halo {
+  background: rgba(168, 187, 168, 0.48);
+  border-radius: 47% 53% 52% 48% / 58% 47% 53% 42%;
+  height: 76%;
+  left: 5%;
+  position: absolute;
+  top: 10%;
+  transform: rotate(6deg);
+  width: 85%;
+}
+
+.portrait-wrap img {
+  bottom: -1px;
+  filter: saturate(0.78) contrast(0.98);
+  height: 92%;
+  left: 0;
+  object-fit: contain;
+  object-position: bottom center;
+  position: absolute;
+  width: 100%;
+}
+
+.portrait-note {
+  align-items: center;
+  background: var(--wine);
+  border-radius: 50%;
+  bottom: 13%;
+  color: white;
+  display: flex;
+  font-family: "Fraunces", serif;
+  font-size: 13px;
+  height: 92px;
+  justify-content: center;
+  line-height: 1.2;
+  position: absolute;
+  right: 7%;
+  text-align: center;
+  transform: rotate(8deg);
+  width: 92px;
+}
+
+.butterfly {
+  display: block;
+  pointer-events: none;
+}
+
+.butterfly img {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.hero-butterfly {
+  animation: butterfly-drift 6s ease-in-out infinite;
+  height: 270px;
+  left: -20px;
+  opacity: 0.82;
+  position: absolute;
+  top: 17%;
+  transform: rotate(-25deg);
+  width: 180px;
+  z-index: 2;
+}
+
+.scroll-hint {
+  align-items: center;
+  bottom: 30px;
+  display: flex;
+  font-size: 9px;
+  gap: 12px;
+  left: 4vw;
+  letter-spacing: 0.18em;
+  position: absolute;
+  text-transform: uppercase;
+  transform: rotate(-90deg);
+  transform-origin: left center;
+  z-index: 4;
+}
+
+.scroll-hint i {
+  background: var(--ink);
+  display: block;
+  height: 1px;
+  width: 35px;
+}
+
+.section {
+  padding: 130px 8vw;
+  position: relative;
+}
+
+.section-heading h2 {
+  font-size: clamp(42px, 5.2vw, 78px);
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+  margin: 24px 0 0;
+  max-width: 820px;
+}
+
+.intro {
+  background:
+    linear-gradient(rgba(251, 249, 243, 0.9), rgba(251, 249, 243, 0.9)),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+  display: grid;
+  gap: 8vw;
+  grid-template-columns: 0.2fr 1.1fr 0.75fr;
+  min-height: 720px;
+}
+
+.intro-number {
+  color: var(--sage);
+  font-family: "Fraunces", serif;
+  font-size: 18px;
+  padding-top: 43px;
+}
+
+.intro-body {
+  padding-top: 122px;
+}
+
+.intro-body > p,
+.about-copy p {
+  color: var(--sage-deep);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+blockquote {
+  border-left: 1px solid var(--gold);
+  color: var(--wine);
+  font-family: "Fraunces", serif;
+  font-size: 25px;
+  line-height: 1.4;
+  margin: 52px 0 0;
+  padding-left: 30px;
+}
+
+.intro-butterfly {
+  bottom: -115px;
+  height: 330px;
+  opacity: 0.58;
+  position: absolute;
+  right: -20px;
+  transform: rotate(20deg);
+  width: 220px;
+}
+
+.needs {
+  background:
+    linear-gradient(rgba(244, 240, 230, 0.87), rgba(244, 240, 230, 0.87)),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+}
+
+.needs-top {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 70px;
+}
+
+.needs-top .section-heading {
+  max-width: 750px;
+}
+
+.lead {
+  color: var(--sage-text);
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 380px;
+}
+
+.needs-grid {
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.need-card {
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  min-height: 330px;
+  padding: 34px;
+  position: relative;
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+
+.need-card:hover {
+  background: var(--paper);
+  transform: translateY(-5px);
+}
+
+.need-card > span {
+  color: var(--sage-number);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+.need-icon {
+  margin: 25px 0 20px;
+}
+
+.need-icon svg {
+  fill: none;
+  height: 46px;
+  stroke: var(--wine);
+  stroke-width: 1;
+  width: 46px;
+}
+
+.need-card h3 {
+  font-size: 25px;
+  margin-bottom: 12px;
+}
+
+.need-card p {
+  color: var(--sage-card);
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+.session {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  gap: 10vw;
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.session .kicker {
+  color: var(--rose-on-dark);
+}
+
+.session-title-wrap .lead {
+  color: var(--sage-on-dark);
+  margin-top: 35px;
+}
+
+.steps {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.step {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 45px 1fr;
+  padding: 34px 0;
+}
+
+.step > span {
+  color: var(--rose-on-dark);
+  font-family: "Fraunces", serif;
+  font-size: 16px;
+}
+
+.step h3 {
+  font-size: 29px;
+  margin-bottom: 8px;
+}
+
+.step p {
+  color: var(--sage-on-dark);
+  font-size: 13px;
+  margin-bottom: 0;
+  max-width: 500px;
+}
+
+.about {
+  align-items: center;
+  background:
+    linear-gradient(rgba(251, 249, 243, 0.9), rgba(251, 249, 243, 0.9)),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+  display: grid;
+  gap: 10vw;
+  grid-template-columns: 0.85fr 1fr;
+}
+
+.about-portrait {
+  height: 650px;
+  position: relative;
+}
+
+.about-circle {
+  background: var(--sage-light);
+  border-radius: 50% 46% 52% 48%;
+  bottom: 0;
+  height: 87%;
+  left: 5%;
+  position: absolute;
+  width: 90%;
+}
+
+.about-portrait img {
+  bottom: 0;
+  filter: saturate(0.7);
+  height: 98%;
+  object-fit: contain;
+  object-position: bottom;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.about-copy {
+  max-width: 590px;
+}
+
+.about-copy > div:last-child {
+  margin-top: 40px;
+}
+
+.signature {
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  padding-top: 24px;
+}
+
+.signature strong {
+  color: var(--wine);
+  font-family: "Fraunces", serif;
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.signature span {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact {
+  align-items: center;
+  background:
+    linear-gradient(rgba(244, 240, 230, 0.84), rgba(244, 240, 230, 0.84)),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+  display: grid;
+  gap: 9vw;
+  grid-template-columns: 1.2fr 0.8fr;
+  overflow: hidden;
+}
+
+.contact-main {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-main > p {
+  color: var(--sage-text);
+  margin-top: 30px;
+  max-width: 570px;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 55px;
+  padding: 0 26px;
+}
+
+.secondary-button {
+  align-items: center;
+  border: 1px solid var(--ink);
+  display: inline-flex;
+  font-size: 11px;
+  gap: 24px;
+  justify-content: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.25s, color 0.25s;
+}
+
+.secondary-button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.contact-card {
+  background: var(--paper);
+  border-top: 3px solid var(--wine);
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-card p {
+  font-family: "Fraunces", serif;
+  font-size: 24px;
+  line-height: 1.5;
+  margin: 30px 0;
+  white-space: pre-line;
+}
+
+.contact-card > a {
+  border-bottom: 1px solid var(--line);
+  color: var(--wine);
+  font-family: "Fraunces", serif;
+  font-size: 30px;
+  padding-bottom: 25px;
+}
+
+.contact-card > span:last-child {
+  color: var(--sage-muted);
+  font-size: 11px;
+  margin-top: 22px;
+}
+
+.contact-butterfly {
+  height: 290px;
+  left: 18px;
+  opacity: 0.48;
+  position: absolute;
+  top: 24px;
+  transform: rotate(-24deg);
+  width: 194px;
+}
+
+footer {
+  align-items: center;
+  background: var(--footer);
+  color: var(--paper);
+  display: grid;
+  gap: 28px;
+  grid-template-columns: 1fr 1.3fr 0.7fr;
+  padding: 34px 8vw 24px;
+}
+
+.footer-brand {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+}
+
+.footer-logo {
+  display: block;
+  height: 50px;
+  object-fit: contain;
+  width: 76px;
+}
+
+.footer-brand div {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand strong {
+  font-family: "Fraunces", serif;
+  font-weight: 400;
+}
+
+.footer-brand span {
+  color: var(--sage-footer-bright);
+  font-size: 10px;
+}
+
+footer > p {
+  color: var(--sage-footer);
+  font-size: 10px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.footer-legal {
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  color: var(--sage-footer);
+  display: flex;
+  font-size: 10px;
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  letter-spacing: 0.03em;
+  padding-top: 18px;
+}
+
+.studio-credit {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  transition: color 0.25s ease;
+}
+
+.studio-credit:hover {
+  color: var(--paper);
+}
+
+.studio-logo {
+  display: block;
+  filter: brightness(0) invert(1);
+  height: 34px;
+  object-fit: contain;
+  opacity: 0.92;
+  transition: opacity 0.25s ease;
+  width: 68px;
+}
+
+.studio-credit:hover .studio-logo {
+  opacity: 1;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.need-card:nth-child(2),
+.need-card:nth-child(5) {
+  transition-delay: 0.1s;
+}
+
+.need-card:nth-child(3),
+.need-card:nth-child(6) {
+  transition-delay: 0.2s;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes portrait-in {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes butterfly-drift {
+  0%,
+  100% {
+    transform: rotate(-25deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-22deg) translateY(-12px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .nav {
+    background: var(--ink);
+    color: var(--paper);
+    flex-direction: column;
+    gap: 7px;
+    left: 0;
+    opacity: 0;
+    padding: 110px 8vw 45px;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: -1;
+  }
+
+  .nav.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav button {
+    color: var(--paper);
+    font-family: "Fraunces", serif;
+    font-size: 28px;
+    padding: 8px 0;
+    text-align: left;
+  }
+
+  .menu-toggle {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 0 8px 8px;
+  }
+
+  .menu-toggle i {
+    background: var(--ink);
+    height: 1px;
+    width: 25px;
+  }
+
+  .nav.open ~ .header-actions .menu-toggle i {
+    background: var(--paper);
+  }
+
+  .mobile-booking {
+    display: flex;
+    margin-top: 20px;
+    width: max-content;
+  }
+
+  .hero-copy {
+    padding-left: 7vw;
+  }
+
+  .intro {
+    gap: 5vw;
+    grid-template-columns: 0.15fr 1fr 0.8fr;
+  }
+
+  .needs-top {
+    align-items: start;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 760px) {
+  .header {
+    height: 72px;
+    padding: 0 20px;
+  }
+
+  .brand b {
+    font-size: 15px;
+  }
+
+  .brand-mark {
+    height: 36px;
+    width: 36px;
+  }
+
+  .header-actions {
+    gap: 16px;
+  }
+
+  .header-actions > .nav-booking {
+    display: none;
+  }
+
+  .hero {
+    background:
+      linear-gradient(160deg, rgba(244, 240, 230, 0.83) 0 58%, rgba(223, 231, 220, 0.74) 58%),
+      url("/assets/flyer-botanical-bg.png") center / auto 100% no-repeat;
+    display: block;
+    min-height: 900px;
+    padding-top: 72px;
+  }
+
+  .hero-copy {
+    padding: 70px 24px 0;
+  }
+
+  h1 {
+    font-size: clamp(51px, 15vw, 70px);
+    margin: 24px 0;
+  }
+
+  .hero-copy > p {
+    max-width: 92%;
+  }
+
+  .portrait-wrap {
+    bottom: 0;
+    height: 48%;
+    min-height: 0;
+    position: absolute;
+    right: -12%;
+    width: 88%;
+  }
+
+  .portrait-note {
+    bottom: 22%;
+    height: 72px;
+    right: 8%;
+    width: 72px;
+  }
+
+  .scroll-hint {
+    display: none;
+  }
+
+  .section {
+    padding: 90px 24px;
+  }
+
+  .section-heading h2 {
+    font-size: 45px;
+  }
+
+  .intro {
+    display: block;
+    min-height: 0;
+  }
+
+  .intro-number {
+    display: none;
+  }
+
+  .intro-body {
+    padding-top: 45px;
+  }
+
+  blockquote {
+    font-size: 23px;
+    margin-top: 38px;
+  }
+
+  .intro-butterfly {
+    bottom: -90px;
+    right: -75px;
+  }
+
+  .needs-top {
+    margin-bottom: 50px;
+  }
+
+  .needs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .need-card {
+    min-height: 285px;
+  }
+
+  .session {
+    display: block;
+  }
+
+  .steps {
+    margin-top: 60px;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .about-portrait {
+    height: 490px;
+    width: 100%;
+  }
+
+  .contact {
+    display: block;
+  }
+
+  .contact-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-card {
+    margin-top: 60px;
+    padding: 35px 28px;
+  }
+
+  .contact-card > a {
+    font-size: 25px;
+  }
+
+  footer {
+    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 36px 24px 26px;
+  }
+
+  .footer-legal {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .studio-credit {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Organic journey direction */
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+.header {
+  background: transparent;
+  border: 0;
+  height: 78px;
+  padding: 14px 3vw;
+}
+
+.header::before {
+  backdrop-filter: blur(16px);
+  background: rgba(251, 249, 243, 0.86);
+  border: 1px solid rgba(23, 63, 61, 0.12);
+  border-radius: 999px;
+  content: "";
+  inset: 8px 2vw;
+  position: absolute;
+  z-index: -1;
+}
+
+.brand {
+  margin-left: 18px;
+}
+
+.brand b {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.brand-mark {
+  background: var(--wine);
+  border: 0;
+  color: var(--paper);
+  height: 38px;
+  width: 38px;
+}
+
+.nav {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  gap: 4px;
+  padding: 4px;
+}
+
+.nav button {
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 16px;
+  transition: background 0.25s ease;
+}
+
+.nav button::after {
+  display: none;
+}
+
+.nav button:hover {
+  background: var(--sage-light);
+}
+
+.nav-booking,
+.primary-button {
+  border-radius: 999px;
+}
+
+.hero {
+  background:
+    linear-gradient(rgba(244, 240, 230, 0.68), rgba(244, 240, 230, 0.68)),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+  display: block;
+  min-height: 820px;
+  padding: 78px 5vw 0;
+}
+
+.hero::before {
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid rgba(23, 63, 61, 0.1);
+  border-radius: 46% 54% 56% 44% / 40% 43% 57% 60%;
+  content: "";
+  height: 630px;
+  left: 6vw;
+  position: absolute;
+  top: 125px;
+  transform: rotate(-2deg);
+  width: min(88vw, 1280px);
+}
+
+.hero-copy {
+  margin-left: 8vw;
+  max-width: 570px;
+  padding: 155px 0 90px;
+}
+
+.hero-kicker {
+  font-size: 10px;
+}
+
+h1,
+.section-heading h2,
+.need-card h3,
+.step h3 {
+  font-family: "Manrope", sans-serif;
+}
+
+h1 {
+  font-size: clamp(42px, 4.7vw, 68px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.06;
+  margin: 24px 0;
+}
+
+h1 em {
+  display: inline-block;
+  font-family: "Fraunces", serif;
+  font-size: 1.08em;
+  letter-spacing: -0.035em;
+}
+
+.hero-copy > p {
+  font-size: 14px;
+  max-width: 480px;
+}
+
+.text-link {
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  gap: 25px;
+  margin-top: 28px;
+  padding: 12px 18px;
+  width: max-content;
+}
+
+.portrait-wrap {
+  bottom: 0;
+  height: 700px;
+  min-height: 0;
+  position: absolute;
+  right: 6vw;
+  width: min(43vw, 620px);
+}
+
+.portrait-halo {
+  background: rgba(168, 187, 168, 0.62);
+  border-radius: 42% 58% 35% 65% / 58% 38% 62% 42%;
+  height: 77%;
+  left: 7%;
+  top: 13%;
+  width: 88%;
+}
+
+.portrait-note {
+  bottom: 18%;
+  border-radius: 41% 59% 46% 54%;
+  right: 2%;
+}
+
+.hero-butterfly {
+  left: auto;
+  right: 37vw;
+  top: 110px;
+}
+
+.orbit-note {
+  align-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--wine);
+  display: flex;
+  font-family: "Fraunces", serif;
+  font-size: 12px;
+  font-style: italic;
+  height: 72px;
+  justify-content: center;
+  position: absolute;
+  width: 72px;
+  z-index: 4;
+}
+
+.orbit-one {
+  bottom: 105px;
+  left: 5vw;
+  transform: rotate(-8deg);
+}
+
+.orbit-two {
+  right: 4vw;
+  top: 150px;
+  transform: rotate(10deg);
+}
+
+.section {
+  padding: 105px 10vw;
+}
+
+.section-heading h2 {
+  font-size: clamp(32px, 3.5vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+  margin-top: 18px;
+}
+
+.kicker {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.intro {
+  align-items: start;
+  background:
+    linear-gradient(rgba(251, 249, 243, 0.82), rgba(251, 249, 243, 0.82)),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+  gap: 6vw;
+  grid-template-columns: 1fr 0.8fr;
+  min-height: 610px;
+}
+
+.intro .section-heading {
+  background: rgba(255, 255, 255, 0.64);
+  border-radius: 42% 58% 51% 49% / 57% 43% 57% 43%;
+  padding: 60px 55px;
+  transform: rotate(-1deg);
+}
+
+.intro-body {
+  padding-top: 72px;
+}
+
+.intro-body > p,
+.about-copy p {
+  font-size: 14px;
+}
+
+blockquote {
+  border: 0;
+  font-size: 22px;
+  padding: 0;
+}
+
+.needs {
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+}
+
+.needs::before {
+  background: url("/assets/flyer-botanical-bg.png") center / 100% 100%;
+  content: "";
+  inset: 0;
+  opacity: 0.07;
+  position: absolute;
+}
+
+.needs-top {
+  align-items: center;
+  margin: 0 auto 80px;
+  max-width: 920px;
+}
+
+.needs .kicker {
+  color: var(--rose-on-dark);
+}
+
+.needs .lead {
+  color: var(--sage-on-dark);
+}
+
+.needs-grid {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 940px;
+  position: relative;
+}
+
+.journey-path {
+  height: calc(100% - 60px);
+  left: 50%;
+  overflow: visible;
+  position: absolute;
+  top: 30px;
+  transform: translateX(-50%);
+  width: 58%;
+  z-index: 0;
+}
+
+.journey-path path {
+  fill: none;
+  stroke: rgba(200, 145, 63, 0.62);
+  stroke-dasharray: 3 8;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+.journey-path .arrow-tip {
+  fill: none;
+  stroke: rgba(200, 145, 63, 0.78);
+  stroke-dasharray: none;
+  stroke-linecap: round;
+  stroke-width: 1.2;
+}
+
+.need-card {
+  align-items: center;
+  background: var(--paper);
+  border: 0;
+  border-radius: 44% 56% 51% 49% / 44% 43% 57% 56%;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 34px;
+  min-height: 0;
+  padding: 34px 44px 38px;
+  position: relative;
+  text-align: center;
+  width: 44%;
+  z-index: 1;
+}
+
+.need-card:nth-of-type(even) {
+  align-self: flex-end;
+  border-radius: 55% 45% 42% 58% / 51% 57% 43% 49%;
+}
+
+.need-card:nth-of-type(3n) {
+  transform: rotate(-1.5deg);
+}
+
+.need-card:hover {
+  background: white;
+  transform: rotate(1deg) scale(1.025);
+}
+
+.need-icon {
+  display: none;
+}
+
+.need-card h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 9px;
+}
+
+.need-card p {
+  font-size: 12px;
+  margin: 0;
+  max-width: 330px;
+}
+
+.session {
+  background:
+    linear-gradient(rgba(244, 240, 230, 0.88), rgba(244, 240, 230, 0.88)),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100%;
+  color: var(--ink);
+  display: block;
+}
+
+.session-title-wrap {
+  margin: 0 auto 65px;
+  max-width: 740px;
+  text-align: center;
+}
+
+.session-title-wrap .kicker {
+  justify-content: center;
+}
+
+.session-title-wrap .lead {
+  color: var(--sage-text);
+  margin: 25px auto 0;
+}
+
+.steps {
+  border: 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 46% 54% 48% 52% / 56% 43% 57% 44%;
+  display: block;
+  min-height: 265px;
+  padding: 45px 38px;
+  text-align: center;
+}
+
+.step:nth-child(2) {
+  border-radius: 57% 43% 58% 42% / 44% 55% 45% 56%;
+  transform: translateY(28px);
+}
+
+.step > span {
+  color: var(--wine);
+}
+
+.step h3 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.step p {
+  color: var(--sage-text);
+  font-size: 12px;
+}
+
+.about {
+  gap: 8vw;
+  grid-template-columns: 0.75fr 1fr;
+}
+
+.about-portrait {
+  height: 550px;
+}
+
+.about-circle {
+  border-radius: 44% 56% 38% 62% / 53% 42% 58% 47%;
+}
+
+.about-copy {
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 43% 57% 53% 47% / 51% 43% 57% 49%;
+  padding: 65px 70px;
+}
+
+.share {
+  align-items: center;
+  background: var(--wine);
+  color: var(--paper);
+  display: grid;
+  gap: 10vw;
+  grid-template-columns: 1.05fr 0.65fr;
+  min-height: 620px;
+  overflow: hidden;
+}
+
+.share::before {
+  background: url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+  content: "";
+  inset: 0;
+  opacity: 0.08;
+  position: absolute;
+}
+
+.share-copy {
+  max-width: 650px;
+  position: relative;
+  z-index: 2;
+}
+
+.share .kicker {
+  color: #eed2dc;
+}
+
+.share-copy h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(34px, 3.6vw, 52px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+  margin: 22px 0 24px;
+}
+
+.share-copy > p {
+  color: #eed2dc;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+.flyer-preview {
+  cursor: pointer;
+  display: block;
+  height: 400px;
+  position: relative;
+  width: 310px;
+  z-index: 2;
+}
+
+.flyer-preview:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 12px;
+}
+
+.flyer-sheet {
+  background:
+    linear-gradient(rgba(244, 240, 230, 0.86), rgba(244, 240, 230, 0.86)),
+    url("/assets/flyer-botanical-bg.png") center / cover;
+  border-radius: 4px;
+  box-shadow: 0 28px 60px rgba(45, 8, 24, 0.28);
+  height: 340px;
+  position: absolute;
+  transition: transform 0.45s ease;
+  width: 238px;
+}
+
+.flyer-sheet-back {
+  left: 58px;
+  top: 35px;
+  transform: rotate(9deg);
+}
+
+.flyer-sheet-front {
+  align-items: center;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 4px;
+  text-align: center;
+  top: 8px;
+  transform: rotate(-5deg);
+}
+
+.flyer-sheet-front img {
+  height: 64px;
+  margin-bottom: 24px;
+  object-fit: contain;
+  width: 106px;
+}
+
+.flyer-sheet-front > span {
+  font-family: "Fraunces", serif;
+  font-size: 19px;
+  font-style: italic;
+}
+
+.flyer-sheet-front strong {
+  color: var(--wine);
+  font-family: "Fraunces", serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.flyer-sheet-front i {
+  background: var(--gold);
+  height: 1px;
+  margin: 27px 0;
+  width: 48px;
+}
+
+.flyer-sheet-front small {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+}
+
+.pdf-badge {
+  align-items: center;
+  background: var(--ink);
+  border: 4px solid var(--wine);
+  border-radius: 50%;
+  bottom: 5px;
+  color: white;
+  display: flex;
+  font-size: 10px;
+  height: 65px;
+  justify-content: center;
+  letter-spacing: 0.15em;
+  position: absolute;
+  right: 1px;
+  width: 65px;
+  z-index: 3;
+  transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.flyer-preview:hover .flyer-sheet-front {
+  transform: rotate(-3deg) translateY(-9px);
+}
+
+.flyer-preview:hover .flyer-sheet-back {
+  transform: rotate(11deg) translate(4px, -3px);
+}
+
+.flyer-preview:hover .pdf-badge {
+  background: var(--gold);
+  transform: scale(1.08);
+}
+
+.share-butterfly {
+  height: 290px;
+  left: auto;
+  opacity: 0.2;
+  position: absolute;
+  right: 12%;
+  top: 12px;
+  transform: rotate(18deg);
+  width: 194px;
+  z-index: 1;
+}
+
+.place {
+  align-items: center;
+  background:
+    linear-gradient(rgba(220, 228, 215, 0.88), rgba(220, 228, 215, 0.88)),
+    url("/assets/flyer-botanical-bg.png") center / 100% 100% no-repeat;
+  display: grid;
+  gap: 8vw;
+  grid-template-columns: 0.82fr 1.18fr;
+  min-height: 800px;
+}
+
+.place-photo {
+  border-radius: 48% 52% 44% 56% / 38% 43% 57% 62%;
+  height: 650px;
+  overflow: hidden;
+  position: relative;
+}
+
+.place-photo::after {
+  background: linear-gradient(180deg, transparent 60%, rgba(23, 63, 61, 0.42));
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.place-photo img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  transition: transform 0.8s ease;
+  width: 100%;
+}
+
+.place-photo:hover img {
+  transform: scale(1.025);
+}
+
+.place-details {
+  max-width: 720px;
+}
+
+.place-copy {
+  margin-bottom: 42px;
+  max-width: 600px;
+}
+
+.place-copy h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(34px, 3.6vw, 52px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+  margin: 22px 0 24px;
+}
+
+.place-copy > p {
+  color: var(--sage-deep);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.map-wrap {
+  background: var(--paper);
+  border-radius: 36px;
+  box-shadow: 0 20px 60px rgba(23, 63, 61, 0.12);
+  overflow: hidden;
+  position: relative;
+}
+
+.map-wrap iframe {
+  border: 0;
+  display: block;
+  filter: saturate(0.72) contrast(0.92);
+  height: 310px;
+  width: 100%;
+}
+
+.map-place-label {
+  background: var(--wine);
+  border: 3px solid var(--paper);
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(23, 63, 61, 0.2);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  left: 50%;
+  letter-spacing: 0.04em;
+  padding: 8px 14px;
+  cursor: pointer;
+  pointer-events: auto;
+  position: absolute;
+  top: 138px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.map-caption {
+  align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  padding: 24px 28px;
+}
+
+.map-caption p {
+  color: var(--sage-deep);
+  font-size: 11px;
+  line-height: 1.6;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.map-caption a {
+  align-items: center;
+  border-bottom: 1px solid var(--ink);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 600;
+  gap: 12px;
+  letter-spacing: 0.08em;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.map-caption svg {
+  fill: none;
+  height: 15px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 15px;
+}
+
+.contact {
+  border-radius: 80px 80px 0 0;
+  margin-top: -40px;
+  padding-top: 130px;
+}
+
+.contact-card {
+  border: 0;
+  border-radius: 48% 52% 42% 58% / 52% 43% 57% 48%;
+  padding: 65px 55px;
+}
+
+.contact-card p {
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+}
+
+.contact-card > a {
+  font-family: "Manrope", sans-serif;
+  font-size: 22px;
+}
+
+@media (max-width: 1100px) {
+  .header::before {
+    inset-inline: 10px;
+  }
+
+  .nav {
+    border-radius: 0 0 32px 32px;
+  }
+
+  .nav button {
+    border-radius: 0;
+    font-size: 24px;
+    padding: 10px 0;
+  }
+
+  .hero-copy {
+    margin-left: 2vw;
+  }
+
+  .portrait-wrap {
+    right: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .brand-logo {
+    height: 48px;
+    width: 124px;
+  }
+
+  .hero {
+    min-height: 840px;
+    padding-top: 72px;
+  }
+
+  .hero::before {
+    height: 690px;
+    left: 14px;
+    top: 98px;
+    width: calc(100% - 28px);
+  }
+
+  .hero-copy {
+    margin: 0;
+    padding: 80px 24px 0;
+  }
+
+  h1 {
+    font-size: 43px;
+  }
+
+  .portrait-wrap {
+    height: 390px;
+    right: -13%;
+    width: 88%;
+  }
+
+  .hero-butterfly {
+    height: 160px;
+    right: -15px;
+    top: 95px;
+    width: 105px;
+  }
+
+  .orbit-note {
+    display: none;
+  }
+
+  .section {
+    padding: 85px 24px;
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
+  }
+
+  .kicker {
+    font-size: 12px;
+  }
+
+  .intro .section-heading {
+    padding: 40px 30px;
+  }
+
+  .intro-body {
+    padding-top: 35px;
+  }
+
+  .needs-top {
+    margin-bottom: 55px;
+  }
+
+  .needs-grid {
+    padding-left: 30px;
+  }
+
+  .journey-path {
+    height: 100%;
+    left: 7px;
+    top: 0;
+    transform: none;
+    width: 44px;
+  }
+
+  .need-card,
+  .need-card:nth-of-type(even) {
+    align-self: stretch;
+    border-radius: 32px;
+    margin-bottom: 22px;
+    padding: 28px;
+    width: 100%;
+  }
+
+  .steps {
+    display: block;
+  }
+
+  .step,
+  .step:nth-child(2) {
+    border-radius: 38px;
+    margin-bottom: 16px;
+    min-height: 0;
+    padding: 34px 28px;
+    transform: none;
+  }
+
+  .about-copy {
+    border-radius: 40px;
+    padding: 42px 30px;
+  }
+
+  .share {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    min-height: 0;
+  }
+
+  .share-copy h2 {
+    font-size: 34px;
+  }
+
+  .flyer-preview {
+    height: 350px;
+    transform: scale(0.88);
+    transform-origin: top center;
+  }
+
+  .place {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+    min-height: 0;
+  }
+
+  .place-photo {
+    border-radius: 42px;
+    height: 520px;
+    width: 100%;
+  }
+
+  .place-details {
+    width: 100%;
+  }
+
+  .place-copy h2 {
+    font-size: 34px;
+  }
+
+  .map-wrap {
+    border-radius: 28px;
+  }
+
+  .map-wrap iframe {
+    height: 280px;
+  }
+
+  .map-caption {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .contact {
+    border-radius: 48px 48px 0 0;
+  }
+
+  .contact-card {
+    border-radius: 38px;
+    padding: 40px 30px;
+  }
+}
