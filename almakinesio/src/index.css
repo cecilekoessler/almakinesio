@@ -20,6 +20,7 @@
   --sage-footer-bright: #9fb6af;
   --sage-on-dark: #aac1ba;
   --rose-on-dark: #d4a9b7;
+  --rose-pale: #eed2dc;
   --gold: #c8913f;
   --footer: #0f302f;
   --line: rgba(23, 63, 61, 0.18);
@@ -1583,7 +1584,20 @@ blockquote {
 .about-copy {
   background: rgba(255, 255, 255, 0.72);
   border-radius: 43% 57% 53% 47% / 51% 43% 57% 49%;
+  min-width: 0;
   padding: 65px 70px;
+}
+
+.about-copy .signature {
+  margin-inline: 22px;
+  min-width: 0;
+  padding-bottom: 14px;
+}
+
+.about-copy .signature strong,
+.about-copy .signature span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .share {
@@ -1612,7 +1626,7 @@ blockquote {
 }
 
 .share .kicker {
-  color: #eed2dc;
+  color: var(--rose-pale);
 }
 
 .share-copy h2 {
@@ -1625,10 +1639,132 @@ blockquote {
 }
 
 .share-copy > p {
-  color: #eed2dc;
+  color: var(--rose-pale);
   font-size: 14px;
   line-height: 1.8;
   max-width: 520px;
+}
+
+.contact-email-form {
+  background: rgba(251, 249, 243, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  display: grid;
+  gap: 18px;
+  margin-top: 34px;
+  max-width: 610px;
+  padding: 28px;
+}
+
+.contact-email-heading h3 {
+  color: var(--wine);
+  font-family: "Fraunces", serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin: 0 0 6px;
+}
+
+.contact-email-heading p {
+  color: var(--sage-text);
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 520px;
+}
+
+.contact-email-form label {
+  display: grid;
+  gap: 7px;
+}
+
+.contact-email-form label > span {
+  color: var(--ink);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.contact-email-form input,
+.contact-email-form textarea {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+  padding: 12px 14px;
+  width: 100%;
+}
+
+.contact-email-form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.contact-email-form input::placeholder,
+.contact-email-form textarea::placeholder {
+  color: var(--sage-muted);
+}
+
+.contact-email-form input:focus,
+.contact-email-form textarea:focus {
+  border-color: var(--wine);
+  box-shadow: 0 0 0 3px rgba(131, 29, 67, 0.12);
+}
+
+.contact-email-actions {
+  align-items: center;
+  display: flex;
+  gap: 22px;
+}
+
+.contact-email-actions button {
+  align-items: center;
+  background: var(--ink);
+  color: var(--paper);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 10px;
+  gap: 14px;
+  justify-content: center;
+  letter-spacing: 0.06em;
+  min-height: 44px;
+  padding: 0 18px;
+  text-transform: uppercase;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.contact-email-actions button:hover {
+  background: var(--wine);
+  transform: translateY(-2px);
+}
+
+.contact-email-actions button svg {
+  fill: none;
+  height: 15px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 15px;
+}
+
+.contact-email-actions p {
+  color: var(--sage-text);
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contact-email-actions a {
+  border-bottom: 1px solid var(--line);
+  color: var(--wine);
+  overflow-wrap: anywhere;
+}
+
+.contact-email-actions a:hover {
+  border-color: var(--wine);
 }
 
 .flyer-preview {
@@ -1885,6 +2021,79 @@ blockquote {
   width: 15px;
 }
 
+.booking-section {
+  background:
+    linear-gradient(rgba(23, 63, 61, 0.95), rgba(23, 63, 61, 0.95)),
+    url("/assets/flyer-botanical-bg.png") center / cover no-repeat;
+  color: var(--paper);
+  overflow: hidden;
+  text-align: center;
+}
+
+.booking-intro {
+  margin: 0 auto 48px;
+  max-width: 720px;
+}
+
+.booking-intro .kicker {
+  color: var(--gold);
+}
+
+.booking-intro h2 {
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+  margin: 18px 0;
+}
+
+.booking-intro p {
+  color: rgba(251, 249, 243, 0.84);
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+.calendly-shell {
+  background: var(--paper);
+  border: 1px solid rgba(200, 145, 63, 0.45);
+  border-radius: 40px;
+  box-shadow: 0 28px 70px rgba(7, 28, 27, 0.3);
+  margin: 0 auto;
+  max-width: 1120px;
+  overflow: hidden;
+  padding: 12px;
+  width: 100%;
+}
+
+.calendly-inline-widget {
+  height: 700px;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.calendly-fallback {
+  align-items: center;
+  border-bottom: 1px solid rgba(251, 249, 243, 0.5);
+  display: inline-flex;
+  font-size: 11px;
+  gap: 10px;
+  letter-spacing: 0.06em;
+  margin-top: 28px;
+  padding-bottom: 5px;
+}
+
+.calendly-fallback svg {
+  fill: none;
+  height: 15px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  width: 15px;
+}
+
 .contact {
   border-radius: 80px 80px 0 0;
   margin-top: -40px;
@@ -2038,6 +2247,11 @@ blockquote {
     padding: 42px 30px;
   }
 
+  .about-copy .signature {
+    margin-inline: 0;
+    padding-bottom: 0;
+  }
+
   .share {
     display: flex;
     flex-direction: column;
@@ -2047,6 +2261,16 @@ blockquote {
 
   .share-copy h2 {
     font-size: 34px;
+  }
+
+  .contact-email-form {
+    border-radius: 24px;
+    padding: 22px;
+  }
+
+  .contact-email-actions {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .flyer-preview {
@@ -2074,6 +2298,27 @@ blockquote {
 
   .place-copy h2 {
     font-size: 34px;
+  }
+
+  .booking-section {
+    padding-inline: 12px;
+  }
+
+  .booking-intro {
+    padding-inline: 12px;
+  }
+
+  .booking-intro h2 {
+    font-size: 34px;
+  }
+
+  .calendly-shell {
+    border-radius: 26px;
+    padding: 6px;
+  }
+
+  .calendly-inline-widget {
+    height: 1080px;
   }
 
   .map-wrap {

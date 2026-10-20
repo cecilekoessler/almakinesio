@@ -1,6 +1,14 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 
 type Lang = "fr" | "es";
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: { url: string; parentElement: HTMLElement }) => void;
+    };
+  }
+}
 
 const copy = {
   fr: {
@@ -60,12 +68,21 @@ const copy = {
       "Téléchargez le flyer pour le conserver, l’imprimer ou le transmettre simplement à vos proches.",
     shareDownload: "Télécharger le flyer",
     shareFile: "Flyer en français · PDF",
+    shareContactTitle: "Vous souhaitez en savoir plus ?",
+    shareContactText:
+      "N’hésitez pas à m’écrire en précisant un objet clair afin que je puisse vous répondre au mieux.",
+    shareSubject: "Objet de votre message",
+    shareSubjectPlaceholder: "Ex. Question sur une première séance",
+    shareMessage: "Votre message",
+    shareMessagePlaceholder: "Écrivez votre message…",
+    shareSend: "Préparer l’e-mail",
+    shareDirect: "Ou écrivez-moi directement à",
     placeTag: "Le cabinet",
     placeTitle: "Un espace calme, pensé pour vous accueillir.",
     placeText:
       "Laetitia vous reçoit dans un cadre chaleureux et confidentiel à Alma Kinesio, à Llíria. Les séances sont également possibles à domicile.",
     placeDirections: "Ouvrir l’itinéraire",
-    placePhotoAlt: "L’intérieur chaleureux du cabinet de kinésiologie de Laetitia à Llíria",
+    placePhotoAlt: "Laetitia réalise un test musculaire pendant une séance de kinésiologie à Llíria",
     placeMapTitle: "Localisation du cabinet de Laetitia à Llíria",
     contactTag: "Le premier pas",
     contactTitle: "Et si nous en parlions ?",
@@ -76,6 +93,11 @@ const copy = {
     addressLabel: "Le cabinet",
     address: "Alma Kinesio\nApartado 235, 46160 Llíria · Espagne",
     appointment: "Sur rendez-vous, au cabinet et à domicile",
+    bookingTag: "Prendre rendez-vous",
+    bookingTitle: "Réservez votre séance",
+    bookingText:
+      "Choisissez le jour et l’horaire qui vous conviennent. Séance individuelle d’une heure.",
+    bookingFallback: "Ouvrir le calendrier dans un nouvel onglet",
     disclaimer:
       "La kinésiologie est une méthode d’accompagnement au bien-être. Elle ne remplace pas un avis, un diagnostic ou un traitement médical.",
     footer: "Kinésiologie avec douceur à Llíria, Espagne.",
@@ -139,12 +161,21 @@ const copy = {
       "Descarga el folleto para guardarlo, imprimirlo o compartirlo fácilmente con tus familiares y amigos.",
     shareDownload: "Descargar el folleto",
     shareFile: "Folleto en español · PDF",
+    shareContactTitle: "¿Quieres saber más?",
+    shareContactText:
+      "No dudes en escribirme indicando un asunto claro para que pueda responderte lo mejor posible.",
+    shareSubject: "Asunto de tu mensaje",
+    shareSubjectPlaceholder: "Ej. Pregunta sobre una primera sesión",
+    shareMessage: "Tu mensaje",
+    shareMessagePlaceholder: "Escribe tu mensaje…",
+    shareSend: "Preparar el correo",
+    shareDirect: "O escríbeme directamente a",
     placeTag: "La consulta",
     placeTitle: "Un espacio tranquilo, pensado para recibirte.",
     placeText:
       "Laetitia te recibe en un entorno cálido y confidencial en Alma Kinesio, en Llíria. Las sesiones también pueden realizarse a domicilio.",
     placeDirections: "Abrir la ruta",
-    placePhotoAlt: "El interior acogedor de la consulta de kinesiología de Laetitia en Llíria",
+    placePhotoAlt: "Laetitia realiza un test muscular durante una sesión de kinesiología en Llíria",
     placeMapTitle: "Ubicación de la consulta de Laetitia en Llíria",
     contactTag: "El primer paso",
     contactTitle: "¿Hablamos?",
@@ -155,6 +186,11 @@ const copy = {
     addressLabel: "La consulta",
     address: "Alma Kinesio\nApartado 235, 46160 Llíria · España",
     appointment: "Con cita previa, en consulta y a domicilio",
+    bookingTag: "Pedir cita",
+    bookingTitle: "Reserva tu sesión",
+    bookingText:
+      "Elige el día y la hora que más te convengan. Sesión individual de una hora.",
+    bookingFallback: "Abrir el calendario en una pestaña nueva",
     disclaimer:
       "La kinesiología es un método de acompañamiento para el bienestar. No sustituye el asesoramiento, el diagnóstico ni el tratamiento médico.",
     footer: "Kinesiología con suavidad en Llíria, España.",
@@ -185,6 +221,53 @@ function SectionTitle({ tag, children }: { tag: string; children: ReactNode }) {
       <span className="kicker">{tag}</span>
       <h2>{children}</h2>
     </div>
+  );
+}
+
+const calendlyUrl = "https://calendly.com/laetitia-almakinesio/1h";
+
+function CalendlyEmbed({ title, lang }: { title: string; lang: Lang }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const widgetUrl = `${calendlyUrl}?background_color=f8f7f7&text_color=2662af&primary_color=398080&locale=${lang}&hide_gdpr_banner=1`;
+
+  useEffect(() => {
+    const initializeWidget = () => {
+      if (!containerRef.current || !window.Calendly) return;
+      containerRef.current.replaceChildren();
+      window.Calendly.initInlineWidget({
+        url: widgetUrl,
+        parentElement: containerRef.current,
+      });
+    };
+
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[src="https://assets.calendly.com/assets/external/widget.js"]',
+    );
+
+    if (window.Calendly) {
+      initializeWidget();
+      return;
+    }
+
+    const script = existingScript ?? document.createElement("script");
+    script.addEventListener("load", initializeWidget);
+
+    if (!existingScript) {
+      script.src = "https://assets.calendly.com/assets/external/widget.js";
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    return () => script.removeEventListener("load", initializeWidget);
+  }, [widgetUrl]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="calendly-inline-widget"
+      data-url={widgetUrl}
+      aria-label={title}
+    />
   );
 }
 
@@ -244,6 +327,16 @@ export default function App() {
     window.history.pushState({}, "", nextLanguage === "es" ? "/es/" : "/");
   };
 
+  const prepareEmail = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const subject = String(data.get("subject") ?? "");
+    const message = String(data.get("message") ?? "");
+    window.location.href = `mailto:laetitia@almakinesio.com?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(message)}`;
+  };
+
   return (
     <div className="site-shell">
       <header className="header">
@@ -256,9 +349,12 @@ export default function App() {
               {label}
             </button>
           ))}
-          <a className="nav-booking mobile-booking" href="tel:+34611935465">
+          <button
+            className="nav-booking mobile-booking"
+            onClick={() => goTo("rendez-vous")}
+          >
             {t.booking}
-          </a>
+          </button>
         </nav>
         <div className="header-actions">
           <div className="language" aria-label="Choisir la langue">
@@ -276,9 +372,9 @@ export default function App() {
               ES
             </button>
           </div>
-          <a className="nav-booking" href="tel:+34611935465">
+          <button className="nav-booking" onClick={() => goTo("rendez-vous")}>
             {t.booking} <Arrow diagonal />
-          </a>
+          </button>
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -403,7 +499,7 @@ export default function App() {
 
         <section className="place section">
           <div className="place-photo reveal">
-            <img src="/assets/cabinet-laetitia.png" alt={t.placePhotoAlt} />
+            <img src="/assets/seance-kinesiologie-laetitia.jpg" alt={t.placePhotoAlt} />
           </div>
           <div className="place-details">
             <div className="place-copy reveal">
@@ -439,6 +535,25 @@ export default function App() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="booking-section section" id="rendez-vous">
+          <div className="booking-intro reveal">
+            <span className="kicker">{t.bookingTag}</span>
+            <h2>{t.bookingTitle}</h2>
+            <p>{t.bookingText}</p>
+          </div>
+          <div className="calendly-shell reveal">
+            <CalendlyEmbed title={t.bookingTitle} lang={lang} />
+          </div>
+          <a
+            className="calendly-fallback"
+            href={calendlyUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t.bookingFallback} <Arrow diagonal />
+          </a>
         </section>
 
         <section className="share section">
@@ -492,6 +607,39 @@ export default function App() {
                 {t.email} <Arrow />
               </a>
             </div>
+            <form className="contact-email-form reveal" onSubmit={prepareEmail}>
+              <div className="contact-email-heading">
+                <h3>{t.shareContactTitle}</h3>
+                <p>{t.shareContactText}</p>
+              </div>
+              <label>
+                <span>{t.shareSubject}</span>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder={t.shareSubjectPlaceholder}
+                  required
+                />
+              </label>
+              <label>
+                <span>{t.shareMessage}</span>
+                <textarea
+                  name="message"
+                  placeholder={t.shareMessagePlaceholder}
+                  rows={3}
+                  required
+                />
+              </label>
+              <div className="contact-email-actions">
+                <button type="submit">
+                  {t.shareSend} <Arrow diagonal />
+                </button>
+                <p>
+                  {t.shareDirect}{" "}
+                  <a href="mailto:laetitia@almakinesio.com">laetitia@almakinesio.com</a>
+                </p>
+              </div>
+            </form>
           </div>
           <aside className="contact-card reveal">
             <span className="kicker">{t.addressLabel}</span>
