@@ -91,7 +91,7 @@ const copy = {
     call: "Appeler Laetitia",
     email: "Écrire sur WhatsApp",
     addressLabel: "Le cabinet",
-    address: "Alma Kinesio\nApartado 235, 46160 Llíria · Espagne",
+    address: "Alma Kinesio\nNucleo Barranquet Montarago 167\n46160 Lliria · Espagne",
     appointment: "Sur rendez-vous, au cabinet et à domicile",
     bookingTag: "Prendre rendez-vous",
     bookingTitle: "Réservez votre séance",
@@ -184,7 +184,7 @@ const copy = {
     call: "Llamar a Laetitia",
     email: "Escribir por WhatsApp",
     addressLabel: "La consulta",
-    address: "Alma Kinesio\nApartado 235, 46160 Llíria · España",
+    address: "Alma Kinesio\nNucleo Barranquet Montarago 167\n46160 Lliria · España",
     appointment: "Con cita previa, en consulta y a domicilio",
     bookingTag: "Pedir cita",
     bookingTitle: "Reserva tu sesión",
@@ -277,6 +277,7 @@ export default function App() {
   );
   const [menuOpen, setMenuOpen] = useState(false);
   const t = copy[lang];
+  const localizedCalendlyUrl = `${calendlyUrl}?locale=${lang}`;
 
   useEffect(() => {
     document.documentElement.lang = lang;
@@ -510,13 +511,13 @@ export default function App() {
             <div className="map-wrap reveal">
               <iframe
                 title={t.placeMapTitle}
-                src="https://www.google.com/maps?q=39.645194%2C-0.6426005&output=embed&z=15"
+                src="https://www.google.com/maps?q=Nucleo%20Barranquet%20Montarago%20167%2C%2046160%20Lliria&output=embed&z=15"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
               <a
                 className="map-place-label"
-                href="https://www.google.com/maps/search/?api=1&query=39.645194%2C-0.6426005"
+                href="https://www.google.com/maps/search/?api=1&query=Nucleo%20Barranquet%20Montarago%20167%2C%2046160%20Lliria"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Ouvrir Alma Kinesio dans Google Maps"
@@ -526,7 +527,7 @@ export default function App() {
               <div className="map-caption">
                 <p>{t.address}</p>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=39.645194%2C-0.6426005"
+                  href="https://www.google.com/maps/search/?api=1&query=Nucleo%20Barranquet%20Montarago%20167%2C%2046160%20Lliria"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -544,11 +545,11 @@ export default function App() {
             <p>{t.bookingText}</p>
           </div>
           <div className="calendly-shell reveal">
-            <CalendlyEmbed title={t.bookingTitle} lang={lang} />
+            <CalendlyEmbed key={lang} title={t.bookingTitle} lang={lang} />
           </div>
           <a
             className="calendly-fallback"
-            href={calendlyUrl}
+            href={localizedCalendlyUrl}
             target="_blank"
             rel="noreferrer"
           >
