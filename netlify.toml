@@ -7,6 +7,13 @@
   NODE_VERSION = "22"
   PNPM_VERSION = "10.34.3"
 
+# Espace d'administration de Laetitia (Pages CMS)
+[[redirects]]
+  from = "/admin"
+  to = "https://app.pagescms.org"
+  status = 302
+  force = true
+
 [[redirects]]
   from = "/es/*"
   to = "/index.html"

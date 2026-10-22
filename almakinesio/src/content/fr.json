@@ -1,0 +1,112 @@
+{
+  "booking": "Prendre rendez-vous",
+  "eyebrow": "Kinésiologue à Llíria · Espagne",
+  "heroText": "Une approche douce et globale pour mieux comprendre ce qui vous traverse, libérer les tensions et avancer avec plus de sérénité.",
+  "heroCta": "Découvrir la kinésiologie",
+  "scroll": "Faire défiler",
+  "introTag": "Corps · émotions · énergie",
+  "introTitle": "Votre corps connaît le chemin.",
+  "introText": "La kinésiologie est une approche humaine globale, à la croisée de la physiologie occidentale, de l’énergétique traditionnelle chinoise et des neurosciences. Elle aide à identifier l’origine d’un déséquilibre et à libérer les charges émotionnelles qui y sont associées.",
+  "quote": "Retrouver un espace intérieur plus calme, où le corps et l’esprit peuvent à nouveau dialoguer.",
+  "forTag": "Un accompagnement pour chacun",
+  "forTitle": "Dans quel cas faire appel à la kinésiologie ?",
+  "forIntro": "À tout âge de la vie, la kinésiologie vous accompagne dans les périodes de tension, de transition ou de questionnement.",
+  "sessionTag": "Votre séance",
+  "sessionTitle": "Un temps pour vous, à votre rythme.",
+  "sessionIntro": "Chaque accompagnement est unique. La séance se déroule dans un cadre confidentiel, avec écoute, douceur et sans jugement.",
+  "aboutTag": "Votre praticienne",
+  "aboutTitle": "Bonjour, je suis Laetitia.",
+  "aboutText1": "Je vous accompagne avec bienveillance vers un mieux-être durable. Mon approche place l’écoute, la confiance et le respect de votre rythme au cœur de chaque séance.",
+  "aboutText2": "Je reçois enfants, adolescents et adultes au cabinet à Llíria ou à domicile, en français, espagnol et anglais.",
+  "signature": "Laetitia Sanchez Jolibert",
+  "location": "Cabinet & domicile · Llíria",
+  "shareTag": "À garder et à partager",
+  "shareTitle": "La kinésiologie pourrait aider quelqu’un autour de vous ?",
+  "shareText": "Téléchargez le flyer pour le conserver, l’imprimer ou le transmettre simplement à vos proches.",
+  "shareDownload": "Télécharger le flyer",
+  "shareFile": "Flyer en français · PDF",
+  "shareContactTitle": "Vous souhaitez en savoir plus ?",
+  "shareContactText": "N’hésitez pas à m’écrire en précisant un objet clair afin que je puisse vous répondre au mieux.",
+  "shareSubject": "Objet de votre message",
+  "shareSubjectPlaceholder": "Ex. Question sur une première séance",
+  "shareMessage": "Votre message",
+  "shareMessagePlaceholder": "Écrivez votre message…",
+  "shareSend": "Préparer l’e-mail",
+  "shareDirect": "Ou écrivez-moi directement à",
+  "placeTag": "Le cabinet",
+  "placeTitle": "Un espace calme, pensé pour vous accueillir.",
+  "placeText": "Laetitia vous reçoit dans un cadre chaleureux et confidentiel à Alma Kinesio, à Llíria. Les séances sont également possibles à domicile.",
+  "placeDirections": "Ouvrir l’itinéraire",
+  "placePhotoAlt": "Laetitia réalise un test musculaire pendant une séance de kinésiologie à Llíria",
+  "placeMapTitle": "Localisation du cabinet de Laetitia à Llíria",
+  "contactTag": "Le premier pas",
+  "contactTitle": "Et si nous en parlions ?",
+  "contactText": "Une question avant de prendre rendez-vous ? Appelez-moi ou écrivez-moi, je vous répondrai avec plaisir.",
+  "call": "Appeler Laetitia",
+  "email": "Écrire sur WhatsApp",
+  "addressLabel": "Le cabinet",
+  "address": "Alma Kinesio\nNucleo Barranquet Montarago 167\n46160 Lliria · Espagne",
+  "appointment": "Sur rendez-vous, au cabinet et à domicile",
+  "bookingTag": "Prendre rendez-vous",
+  "bookingTitle": "Réservez votre séance",
+  "bookingText": "Choisissez le jour et l’horaire qui vous conviennent. Séance individuelle d’une heure.",
+  "bookingFallback": "Ouvrir le calendrier dans un nouvel onglet",
+  "disclaimer": "La kinésiologie est une méthode d’accompagnement au bien-être. Elle ne remplace pas un avis, un diagnostic ou un traitement médical.",
+  "footer": "Kinésiologie avec douceur à Llíria, Espagne.",
+  "menu": "Menu",
+  "close": "Fermer",
+  "nav": [
+    "La kinésiologie",
+    "Pour qui ?",
+    "Une séance",
+    "À propos"
+  ],
+  "needs": [
+    {
+      "title": "Équilibre & vitalité",
+      "text": "Fatigue, sommeil difficile, baisse d’énergie ou sensation d’être constamment sous tension."
+    },
+    {
+      "title": "Stress & émotions",
+      "text": "Apaiser la charge mentale, mieux accueillir ses émotions et retrouver de la sérénité."
+    },
+    {
+      "title": "Relations & confiance",
+      "text": "Dépasser les schémas récurrents et construire des relations plus justes et apaisées."
+    },
+    {
+      "title": "Enfants & apprentissage",
+      "text": "Accompagner les difficultés scolaires, la concentration, les peurs ou le sommeil."
+    },
+    {
+      "title": "Changements de vie",
+      "text": "Traverser plus sereinement une séparation, un deuil, un déménagement ou un nouveau départ."
+    },
+    {
+      "title": "Connaissance de soi",
+      "text": "Mieux comprendre ses réactions, ses besoins et remettre du mouvement là où tout semble bloqué."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Échanger",
+      "text": "Nous commençons par un temps d’écoute pour clarifier ce que vous vivez et définir ensemble votre objectif."
+    },
+    {
+      "title": "Interroger le corps",
+      "text": "Grâce à une légère pression sur le bras, le test musculaire nous guide vers les déséquilibres prioritaires."
+    },
+    {
+      "title": "Rééquilibrer",
+      "text": "Des techniques douces permettent de libérer le stress associé et de soutenir vos propres ressources."
+    }
+  ],
+  "heroTitleLine1": "Retrouver l’équilibre,",
+  "heroTitleEmphasis": "naturellement.",
+  "flyerLine1": "Découvrez",
+  "flyerLine2": "la kinésiologie",
+  "whatsappMessage": "Bonjour Laetitia, je souhaiterais avoir des informations sur une séance de kinésiologie.",
+  "seoTitle": "Laetitia Sanchez | Kinésiologue à Llíria, Espagne",
+  "seoDescription": "Laetitia Sanchez, kinésiologue à Llíria près de Valencia. Séances pour enfants, adolescents et adultes en français, espagnol et anglais.",
+  "flyerPdf": "/documents/flyer-kinesiologie-laetitia-fr.pdf"
+}

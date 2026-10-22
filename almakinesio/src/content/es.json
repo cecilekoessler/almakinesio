@@ -1,0 +1,112 @@
+{
+  "booking": "Pedir cita",
+  "eyebrow": "Kinesióloga en Llíria · España",
+  "heroText": "Un enfoque suave e integral para comprender mejor lo que te ocurre, liberar tensiones y avanzar con mayor serenidad.",
+  "heroCta": "Descubrir la kinesiología",
+  "scroll": "Deslizar",
+  "introTag": "Cuerpo · emociones · energía",
+  "introTitle": "Tu cuerpo conoce el camino.",
+  "introText": "La kinesiología es un enfoque humano e integral que reúne la fisiología occidental, la energética tradicional china y las neurociencias. Ayuda a identificar el origen de un desequilibrio y a liberar las cargas emocionales asociadas.",
+  "quote": "Recuperar un espacio interior más tranquilo, donde el cuerpo y la mente puedan volver a dialogar.",
+  "forTag": "Un acompañamiento para cada persona",
+  "forTitle": "¿Cuándo recurrir a la kinesiología?",
+  "forIntro": "En cualquier etapa de la vida, la kinesiología puede acompañarte en momentos de tensión, transición o cuestionamiento.",
+  "sessionTag": "Tu sesión",
+  "sessionTitle": "Un momento para ti, a tu ritmo.",
+  "sessionIntro": "Cada acompañamiento es único. La sesión se desarrolla en un espacio confidencial, con escucha, suavidad y sin juicios.",
+  "aboutTag": "Tu kinesióloga",
+  "aboutTitle": "Hola, soy Laetitia.",
+  "aboutText1": "Te acompaño con atención y calidez hacia un bienestar duradero. La escucha, la confianza y el respeto de tu ritmo están en el centro de cada sesión.",
+  "aboutText2": "Recibo a niños, adolescentes y adultos en mi consulta de Llíria o a domicilio, en francés, español e inglés.",
+  "signature": "Laetitia Sanchez Jolibert",
+  "location": "Consulta y domicilio · Llíria",
+  "shareTag": "Para guardar y compartir",
+  "shareTitle": "¿La kinesiología podría ayudar a alguien de tu entorno?",
+  "shareText": "Descarga el folleto para guardarlo, imprimirlo o compartirlo fácilmente con tus familiares y amigos.",
+  "shareDownload": "Descargar el folleto",
+  "shareFile": "Folleto en español · PDF",
+  "shareContactTitle": "¿Quieres saber más?",
+  "shareContactText": "No dudes en escribirme indicando un asunto claro para que pueda responderte lo mejor posible.",
+  "shareSubject": "Asunto de tu mensaje",
+  "shareSubjectPlaceholder": "Ej. Pregunta sobre una primera sesión",
+  "shareMessage": "Tu mensaje",
+  "shareMessagePlaceholder": "Escribe tu mensaje…",
+  "shareSend": "Preparar el correo",
+  "shareDirect": "O escríbeme directamente a",
+  "placeTag": "La consulta",
+  "placeTitle": "Un espacio tranquilo, pensado para recibirte.",
+  "placeText": "Laetitia te recibe en un entorno cálido y confidencial en Alma Kinesio, en Llíria. Las sesiones también pueden realizarse a domicilio.",
+  "placeDirections": "Abrir la ruta",
+  "placePhotoAlt": "Laetitia realiza un test muscular durante una sesión de kinesiología en Llíria",
+  "placeMapTitle": "Ubicación de la consulta de Laetitia en Llíria",
+  "contactTag": "El primer paso",
+  "contactTitle": "¿Hablamos?",
+  "contactText": "¿Tienes alguna pregunta antes de pedir cita? Llámame o escríbeme, estaré encantada de responderte.",
+  "call": "Llamar a Laetitia",
+  "email": "Escribir por WhatsApp",
+  "addressLabel": "La consulta",
+  "address": "Alma Kinesio\nNucleo Barranquet Montarago 167\n46160 Lliria · España",
+  "appointment": "Con cita previa, en consulta y a domicilio",
+  "bookingTag": "Pedir cita",
+  "bookingTitle": "Reserva tu sesión",
+  "bookingText": "Elige el día y la hora que más te convengan. Sesión individual de una hora.",
+  "bookingFallback": "Abrir el calendario en una pestaña nueva",
+  "disclaimer": "La kinesiología es un método de acompañamiento para el bienestar. No sustituye el asesoramiento, el diagnóstico ni el tratamiento médico.",
+  "footer": "Kinesiología con suavidad en Llíria, España.",
+  "menu": "Menú",
+  "close": "Cerrar",
+  "nav": [
+    "La kinesiología",
+    "¿Para quién?",
+    "Una sesión",
+    "Sobre mí"
+  ],
+  "needs": [
+    {
+      "title": "Equilibrio y vitalidad",
+      "text": "Cansancio, sueño difícil, falta de energía o sensación de estar siempre bajo tensión."
+    },
+    {
+      "title": "Estrés y emociones",
+      "text": "Aliviar la carga mental, acoger mejor tus emociones y recuperar la serenidad."
+    },
+    {
+      "title": "Relaciones y confianza",
+      "text": "Superar patrones recurrentes y construir relaciones más sanas y tranquilas."
+    },
+    {
+      "title": "Infancia y aprendizaje",
+      "text": "Acompañar dificultades escolares, concentración, miedos o problemas de sueño."
+    },
+    {
+      "title": "Cambios vitales",
+      "text": "Afrontar con más serenidad una separación, un duelo, una mudanza o un nuevo comienzo."
+    },
+    {
+      "title": "Conocimiento personal",
+      "text": "Comprender tus reacciones y necesidades, y volver a avanzar cuando todo parece bloqueado."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Conversar",
+      "text": "Empezamos escuchando lo que estás viviendo y definiendo juntos el objetivo de la sesión."
+    },
+    {
+      "title": "Escuchar el cuerpo",
+      "text": "Mediante una suave presión sobre el brazo, el test muscular nos orienta hacia los desequilibrios prioritarios."
+    },
+    {
+      "title": "Reequilibrar",
+      "text": "Técnicas suaves permiten liberar el estrés asociado y apoyar tus propios recursos."
+    }
+  ],
+  "heroTitleLine1": "Recupera tu equilibrio,",
+  "heroTitleEmphasis": "de forma natural.",
+  "flyerLine1": "Descubre",
+  "flyerLine2": "la kinesiología",
+  "whatsappMessage": "Hola Laetitia, me gustaría recibir información sobre una sesión de kinesiología.",
+  "seoTitle": "Laetitia Sanchez | Kinesióloga en Llíria, Valencia",
+  "seoDescription": "Laetitia Sanchez, kinesióloga en Llíria, Valencia. Sesiones para niños, adolescentes y adultos en español, francés e inglés.",
+  "flyerPdf": "/documents/flyer-kinesiologie-laetitia-es.pdf"
+}

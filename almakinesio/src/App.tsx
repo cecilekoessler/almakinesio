@@ -1,3 +1,6 @@
+import fr from "./content/fr.json";
+import es from "./content/es.json";
+import site from "./content/site.json";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 
 type Lang = "fr" | "es";
@@ -10,194 +13,9 @@ declare global {
   }
 }
 
-const copy = {
-  fr: {
-    nav: ["La kinésiologie", "Pour qui ?", "Une séance", "À propos"],
-    navIds: ["kinesiologie", "pour-qui", "seance", "a-propos"],
-    booking: "Prendre rendez-vous",
-    eyebrow: "Kinésiologue à Llíria · Espagne",
-    heroTitle: (
-      <>
-        Retrouver l’équilibre,
-        <br />
-        <em>naturellement.</em>
-      </>
-    ),
-    heroText:
-      "Une approche douce et globale pour mieux comprendre ce qui vous traverse, libérer les tensions et avancer avec plus de sérénité.",
-    heroCta: "Découvrir la kinésiologie",
-    scroll: "Faire défiler",
-    introTag: "Corps · émotions · énergie",
-    introTitle: "Votre corps connaît le chemin.",
-    introText:
-      "La kinésiologie est une approche humaine globale, à la croisée de la physiologie occidentale, de l’énergétique traditionnelle chinoise et des neurosciences. Elle aide à identifier l’origine d’un déséquilibre et à libérer les charges émotionnelles qui y sont associées.",
-    quote:
-      "Retrouver un espace intérieur plus calme, où le corps et l’esprit peuvent à nouveau dialoguer.",
-    forTag: "Un accompagnement pour chacun",
-    forTitle: "Dans quel cas faire appel à la kinésiologie ?",
-    forIntro:
-      "À tout âge de la vie, la kinésiologie vous accompagne dans les périodes de tension, de transition ou de questionnement.",
-    needs: [
-      ["Équilibre & vitalité", "Fatigue, sommeil difficile, baisse d’énergie ou sensation d’être constamment sous tension."],
-      ["Stress & émotions", "Apaiser la charge mentale, mieux accueillir ses émotions et retrouver de la sérénité."],
-      ["Relations & confiance", "Dépasser les schémas récurrents et construire des relations plus justes et apaisées."],
-      ["Enfants & apprentissage", "Accompagner les difficultés scolaires, la concentration, les peurs ou le sommeil."],
-      ["Changements de vie", "Traverser plus sereinement une séparation, un deuil, un déménagement ou un nouveau départ."],
-      ["Connaissance de soi", "Mieux comprendre ses réactions, ses besoins et remettre du mouvement là où tout semble bloqué."],
-    ],
-    sessionTag: "Votre séance",
-    sessionTitle: "Un temps pour vous, à votre rythme.",
-    sessionIntro:
-      "Chaque accompagnement est unique. La séance se déroule dans un cadre confidentiel, avec écoute, douceur et sans jugement.",
-    steps: [
-      ["01", "Échanger", "Nous commençons par un temps d’écoute pour clarifier ce que vous vivez et définir ensemble votre objectif."],
-      ["02", "Interroger le corps", "Grâce à une légère pression sur le bras, le test musculaire nous guide vers les déséquilibres prioritaires."],
-      ["03", "Rééquilibrer", "Des techniques douces permettent de libérer le stress associé et de soutenir vos propres ressources."],
-    ],
-    aboutTag: "Votre praticienne",
-    aboutTitle: "Bonjour, je suis Laetitia.",
-    aboutText1:
-      "Je vous accompagne avec bienveillance vers un mieux-être durable. Mon approche place l’écoute, la confiance et le respect de votre rythme au cœur de chaque séance.",
-    aboutText2:
-      "Je reçois enfants, adolescents et adultes au cabinet à Llíria ou à domicile, en français, espagnol et anglais.",
-    signature: "Laetitia Sanchez Jolibert",
-    location: "Cabinet & domicile · Llíria",
-    shareTag: "À garder et à partager",
-    shareTitle: "La kinésiologie pourrait aider quelqu’un autour de vous ?",
-    shareText:
-      "Téléchargez le flyer pour le conserver, l’imprimer ou le transmettre simplement à vos proches.",
-    shareDownload: "Télécharger le flyer",
-    shareFile: "Flyer en français · PDF",
-    shareContactTitle: "Vous souhaitez en savoir plus ?",
-    shareContactText:
-      "N’hésitez pas à m’écrire en précisant un objet clair afin que je puisse vous répondre au mieux.",
-    shareSubject: "Objet de votre message",
-    shareSubjectPlaceholder: "Ex. Question sur une première séance",
-    shareMessage: "Votre message",
-    shareMessagePlaceholder: "Écrivez votre message…",
-    shareSend: "Préparer l’e-mail",
-    shareDirect: "Ou écrivez-moi directement à",
-    placeTag: "Le cabinet",
-    placeTitle: "Un espace calme, pensé pour vous accueillir.",
-    placeText:
-      "Laetitia vous reçoit dans un cadre chaleureux et confidentiel à Alma Kinesio, à Llíria. Les séances sont également possibles à domicile.",
-    placeDirections: "Ouvrir l’itinéraire",
-    placePhotoAlt: "Laetitia réalise un test musculaire pendant une séance de kinésiologie à Llíria",
-    placeMapTitle: "Localisation du cabinet de Laetitia à Llíria",
-    contactTag: "Le premier pas",
-    contactTitle: "Et si nous en parlions ?",
-    contactText:
-      "Une question avant de prendre rendez-vous ? Appelez-moi ou écrivez-moi, je vous répondrai avec plaisir.",
-    call: "Appeler Laetitia",
-    email: "Écrire sur WhatsApp",
-    addressLabel: "Le cabinet",
-    address: "Alma Kinesio\nNucleo Barranquet Montarago 167\n46160 Lliria · Espagne",
-    appointment: "Sur rendez-vous, au cabinet et à domicile",
-    bookingTag: "Prendre rendez-vous",
-    bookingTitle: "Réservez votre séance",
-    bookingText:
-      "Choisissez le jour et l’horaire qui vous conviennent. Séance individuelle d’une heure.",
-    bookingFallback: "Ouvrir le calendrier dans un nouvel onglet",
-    disclaimer:
-      "La kinésiologie est une méthode d’accompagnement au bien-être. Elle ne remplace pas un avis, un diagnostic ou un traitement médical.",
-    footer: "Kinésiologie avec douceur à Llíria, Espagne.",
-    menu: "Menu",
-    close: "Fermer",
-  },
-  es: {
-    nav: ["La kinesiología", "¿Para quién?", "Una sesión", "Sobre mí"],
-    navIds: ["kinesiologie", "pour-qui", "seance", "a-propos"],
-    booking: "Pedir cita",
-    eyebrow: "Kinesióloga en Llíria · España",
-    heroTitle: (
-      <>
-        Recupera tu equilibrio,
-        <br />
-        <em>de forma natural.</em>
-      </>
-    ),
-    heroText:
-      "Un enfoque suave e integral para comprender mejor lo que te ocurre, liberar tensiones y avanzar con mayor serenidad.",
-    heroCta: "Descubrir la kinesiología",
-    scroll: "Deslizar",
-    introTag: "Cuerpo · emociones · energía",
-    introTitle: "Tu cuerpo conoce el camino.",
-    introText:
-      "La kinesiología es un enfoque humano e integral que reúne la fisiología occidental, la energética tradicional china y las neurociencias. Ayuda a identificar el origen de un desequilibrio y a liberar las cargas emocionales asociadas.",
-    quote:
-      "Recuperar un espacio interior más tranquilo, donde el cuerpo y la mente puedan volver a dialogar.",
-    forTag: "Un acompañamiento para cada persona",
-    forTitle: "¿Cuándo recurrir a la kinesiología?",
-    forIntro:
-      "En cualquier etapa de la vida, la kinesiología puede acompañarte en momentos de tensión, transición o cuestionamiento.",
-    needs: [
-      ["Equilibrio y vitalidad", "Cansancio, sueño difícil, falta de energía o sensación de estar siempre bajo tensión."],
-      ["Estrés y emociones", "Aliviar la carga mental, acoger mejor tus emociones y recuperar la serenidad."],
-      ["Relaciones y confianza", "Superar patrones recurrentes y construir relaciones más sanas y tranquilas."],
-      ["Infancia y aprendizaje", "Acompañar dificultades escolares, concentración, miedos o problemas de sueño."],
-      ["Cambios vitales", "Afrontar con más serenidad una separación, un duelo, una mudanza o un nuevo comienzo."],
-      ["Conocimiento personal", "Comprender tus reacciones y necesidades, y volver a avanzar cuando todo parece bloqueado."],
-    ],
-    sessionTag: "Tu sesión",
-    sessionTitle: "Un momento para ti, a tu ritmo.",
-    sessionIntro:
-      "Cada acompañamiento es único. La sesión se desarrolla en un espacio confidencial, con escucha, suavidad y sin juicios.",
-    steps: [
-      ["01", "Conversar", "Empezamos escuchando lo que estás viviendo y definiendo juntos el objetivo de la sesión."],
-      ["02", "Escuchar el cuerpo", "Mediante una suave presión sobre el brazo, el test muscular nos orienta hacia los desequilibrios prioritarios."],
-      ["03", "Reequilibrar", "Técnicas suaves permiten liberar el estrés asociado y apoyar tus propios recursos."],
-    ],
-    aboutTag: "Tu kinesióloga",
-    aboutTitle: "Hola, soy Laetitia.",
-    aboutText1:
-      "Te acompaño con atención y calidez hacia un bienestar duradero. La escucha, la confianza y el respeto de tu ritmo están en el centro de cada sesión.",
-    aboutText2:
-      "Recibo a niños, adolescentes y adultos en mi consulta de Llíria o a domicilio, en francés, español e inglés.",
-    signature: "Laetitia Sanchez Jolibert",
-    location: "Consulta y domicilio · Llíria",
-    shareTag: "Para guardar y compartir",
-    shareTitle: "¿La kinesiología podría ayudar a alguien de tu entorno?",
-    shareText:
-      "Descarga el folleto para guardarlo, imprimirlo o compartirlo fácilmente con tus familiares y amigos.",
-    shareDownload: "Descargar el folleto",
-    shareFile: "Folleto en español · PDF",
-    shareContactTitle: "¿Quieres saber más?",
-    shareContactText:
-      "No dudes en escribirme indicando un asunto claro para que pueda responderte lo mejor posible.",
-    shareSubject: "Asunto de tu mensaje",
-    shareSubjectPlaceholder: "Ej. Pregunta sobre una primera sesión",
-    shareMessage: "Tu mensaje",
-    shareMessagePlaceholder: "Escribe tu mensaje…",
-    shareSend: "Preparar el correo",
-    shareDirect: "O escríbeme directamente a",
-    placeTag: "La consulta",
-    placeTitle: "Un espacio tranquilo, pensado para recibirte.",
-    placeText:
-      "Laetitia te recibe en un entorno cálido y confidencial en Alma Kinesio, en Llíria. Las sesiones también pueden realizarse a domicilio.",
-    placeDirections: "Abrir la ruta",
-    placePhotoAlt: "Laetitia realiza un test muscular durante una sesión de kinesiología en Llíria",
-    placeMapTitle: "Ubicación de la consulta de Laetitia en Llíria",
-    contactTag: "El primer paso",
-    contactTitle: "¿Hablamos?",
-    contactText:
-      "¿Tienes alguna pregunta antes de pedir cita? Llámame o escríbeme, estaré encantada de responderte.",
-    call: "Llamar a Laetitia",
-    email: "Escribir por WhatsApp",
-    addressLabel: "La consulta",
-    address: "Alma Kinesio\nNucleo Barranquet Montarago 167\n46160 Lliria · España",
-    appointment: "Con cita previa, en consulta y a domicilio",
-    bookingTag: "Pedir cita",
-    bookingTitle: "Reserva tu sesión",
-    bookingText:
-      "Elige el día y la hora que más te convengan. Sesión individual de una hora.",
-    bookingFallback: "Abrir el calendario en una pestaña nueva",
-    disclaimer:
-      "La kinesiología es un método de acompañamiento para el bienestar. No sustituye el asesoramiento, el diagnóstico ni el tratamiento médico.",
-    footer: "Kinesiología con suavidad en Llíria, España.",
-    menu: "Menú",
-    close: "Cerrar",
-  },
-};
+const copy = { fr, es };
+const navIds = ["kinesiologie", "pour-qui", "seance", "a-propos"];
+const phoneDigits = site.phoneDisplay.replace(/[^0-9]/g, "");
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -224,7 +42,7 @@ function SectionTitle({ tag, children }: { tag: string; children: ReactNode }) {
   );
 }
 
-const calendlyUrl = "https://calendly.com/laetitia-almakinesio/1h";
+const calendlyUrl = site.calendlyUrl;
 
 function CalendlyEmbed({ title, lang }: { title: string; lang: Lang }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -282,12 +100,8 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = lang;
     const isSpanish = lang === "es";
-    const title = isSpanish
-      ? "Laetitia Sanchez | Kinesióloga en Llíria, Valencia"
-      : "Laetitia Sanchez | Kinésiologue à Llíria, Espagne";
-    const description = isSpanish
-      ? "Laetitia Sanchez, kinesióloga en Llíria, Valencia. Sesiones para niños, adolescentes y adultos en español, francés e inglés."
-      : "Laetitia Sanchez, kinésiologue à Llíria près de Valencia. Séances pour enfants, adolescents et adultes en français, espagnol et anglais.";
+    const title = copy[lang].seoTitle;
+    const description = copy[lang].seoDescription;
     const canonical = `https://www.almakinesio.com${isSpanish ? "/es/" : "/"}`;
 
     document.title = title;
@@ -333,7 +147,7 @@ export default function App() {
     const data = new FormData(event.currentTarget);
     const subject = String(data.get("subject") ?? "");
     const message = String(data.get("message") ?? "");
-    window.location.href = `mailto:laetitia@almakinesio.com?subject=${encodeURIComponent(
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(message)}`;
   };
@@ -346,7 +160,7 @@ export default function App() {
         </button>
         <nav className={menuOpen ? "nav open" : "nav"} aria-label="Navigation principale">
           {t.nav.map((label, index) => (
-            <button key={label} onClick={() => goTo(t.navIds[index])}>
+            <button key={label} onClick={() => goTo(navIds[index])}>
               {label}
             </button>
           ))}
@@ -395,7 +209,11 @@ export default function App() {
           <div className="orbit-note orbit-two" aria-hidden="true">écouter</div>
           <div className="hero-copy">
             <span className="kicker hero-kicker">{t.eyebrow}</span>
-            <h1>{t.heroTitle}</h1>
+            <h1>
+              {t.heroTitleLine1}
+              <br />
+              <em>{t.heroTitleEmphasis}</em>
+            </h1>
             <p>{t.heroText}</p>
             <button className="text-link" onClick={() => goTo("kinesiologie")}>
               {t.heroCta} <Arrow />
@@ -403,7 +221,7 @@ export default function App() {
           </div>
           <div className="portrait-wrap" aria-label="Portrait de Laetitia Sanchez Jolibert">
             <div className="portrait-halo" />
-            <img src="/assets/laetitia-retouchee.png" alt="Laetitia Sanchez Jolibert, kinésiologue à Llíria" />
+            <img src={site.portrait} alt="Laetitia Sanchez Jolibert, kinésiologue à Llíria" />
             <span className="portrait-note">Llíria<br />Valencia</span>
           </div>
           <span className="scroll-hint">{t.scroll}<i /></span>
@@ -448,7 +266,7 @@ export default function App() {
                 d="M176 0 C176 105 624 105 624 213 S176 320 176 426 S624 533 624 640 S176 747 176 853 C176 940 330 1067 465 1067"
               />
             </svg>
-            {t.needs.map(([title, text]) => (
+            {t.needs.map(({ title, text }) => (
               <article className="need-card reveal" key={title}>
                 <div className="need-icon">
                   <svg viewBox="0 0 52 52" aria-hidden="true">
@@ -469,8 +287,8 @@ export default function App() {
             <p className="lead reveal">{t.sessionIntro}</p>
           </div>
           <div className="steps">
-            {t.steps.map(([number, title, text]) => (
-              <article className="step reveal" key={number}>
+            {t.steps.map(({ title, text }) => (
+              <article className="step reveal" key={title}>
                 <div>
                   <h3>{title}</h3>
                   <p>{text}</p>
@@ -483,7 +301,7 @@ export default function App() {
         <section className="about section" id="a-propos">
           <div className="about-portrait reveal">
             <div className="about-circle" />
-            <img src="/assets/laetitia-retouchee.png" alt="" />
+            <img src={site.aboutPortrait} alt="" />
           </div>
           <div className="about-copy">
             <SectionTitle tag={t.aboutTag}>{t.aboutTitle}</SectionTitle>
@@ -500,7 +318,7 @@ export default function App() {
 
         <section className="place section">
           <div className="place-photo reveal">
-            <img src="/assets/seance-kinesiologie-laetitia.jpg" alt={t.placePhotoAlt} />
+            <img src={site.sessionPhoto} alt={t.placePhotoAlt} />
           </div>
           <div className="place-details">
             <div className="place-copy reveal">
@@ -566,19 +384,15 @@ export default function App() {
           </div>
           <a
             className="flyer-preview reveal"
-            href={
-              lang === "fr"
-                ? "/documents/flyer-kinesiologie-laetitia-fr.pdf"
-                : "/documents/flyer-kinesiologie-laetitia-es.pdf"
-            }
+            href={t.flyerPdf}
             download
             aria-label={`${t.shareDownload} — ${t.shareFile}`}
           >
             <div className="flyer-sheet flyer-sheet-back" />
             <div className="flyer-sheet flyer-sheet-front">
               <img src="/assets/logo-laetitia.png" alt="" />
-              <span>{lang === "fr" ? "Découvrez" : "Descubre"}</span>
-              <strong>{lang === "fr" ? "la kinésiologie" : "la kinesiología"}</strong>
+              <span>{t.flyerLine1}</span>
+              <strong>{t.flyerLine2}</strong>
               <i />
               <small>almakinesio.com</small>
             </div>
@@ -592,16 +406,12 @@ export default function App() {
             <SectionTitle tag={t.contactTag}>{t.contactTitle}</SectionTitle>
             <p className="reveal">{t.contactText}</p>
             <div className="contact-actions reveal">
-              <a className="primary-button" href="tel:+34611935465">
+              <a className="primary-button" href={`tel:+${phoneDigits}`}>
                 {t.call} <Arrow diagonal />
               </a>
               <a
                 className="secondary-button"
-                href={`https://wa.me/34611935465?text=${encodeURIComponent(
-                  lang === "fr"
-                    ? "Bonjour Laetitia, je souhaiterais avoir des informations sur une séance de kinésiologie."
-                    : "Hola Laetitia, me gustaría recibir información sobre una sesión de kinesiología.",
-                )}`}
+                href={`https://wa.me/${phoneDigits}?text=${encodeURIComponent(t.whatsappMessage)}`}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -637,7 +447,7 @@ export default function App() {
                 </button>
                 <p>
                   {t.shareDirect}{" "}
-                  <a href="mailto:laetitia@almakinesio.com">laetitia@almakinesio.com</a>
+                  <a href={`mailto:${site.email}`}>{site.email}</a>
                 </p>
               </div>
             </form>
@@ -645,7 +455,7 @@ export default function App() {
           <aside className="contact-card reveal">
             <span className="kicker">{t.addressLabel}</span>
             <p>{t.address}</p>
-            <a href="tel:+34611935465">+34 611 93 54 65</a>
+            <a href={`tel:+${phoneDigits}`}>{site.phoneDisplay}</a>
             <span>{t.appointment}</span>
           </aside>
         </section>
@@ -664,7 +474,7 @@ export default function App() {
         </div>
         <p>{t.disclaimer}</p>
         <div className="footer-links">
-          <a href="tel:+34611935465">+34 611 93 54 65</a>
+          <a href={`tel:+${phoneDigits}`}>{site.phoneDisplay}</a>
           <a href="https://www.almakinesio.com">almakinesio.com</a>
         </div>
         <div className="footer-legal">
