@@ -1,0 +1,11 @@
+# Modifier le site sans toucher au code
+
+Les textes (français et espagnol), les photos, le téléphone, l'e-mail et les flyers sont rangés dans
+`almakinesio/src/content/` et se modifient depuis **almakinesio.com/admin** (Pages CMS).
+
+- Connexion : bouton « Sign in with GitHub », puis choisir le dépôt `almakinesio`.
+- Chaque « Save » publie la modification ; Netlify remet le site à jour en environ une minute.
+- La mise en page, les couleurs et le module Calendly ne sont pas modifiables depuis l'administration.
+
+Important : ne plus republier depuis Figma Make. L'export de Make vers GitHub est à sens unique
+et écraserait les modifications faites ici.

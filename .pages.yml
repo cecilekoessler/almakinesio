@@ -1,0 +1,492 @@
+# Espace d'administration du site almakinesio.com (Pages CMS : https://pagescms.org)
+# Laetitia se connecte sur almakinesio.com/admin avec son compte GitHub.
+# Chaque enregistrement met le site à jour automatiquement via Netlify (environ 1 minute).
+
+media:
+  input: almakinesio/public/assets
+  output: /assets
+content:
+- name: general
+  label: Photos, téléphone et e-mail
+  type: file
+  path: almakinesio/src/content/site.json
+  format: json
+  fields:
+  - name: portrait
+    label: Photo principale (haut de page)
+    type: image
+  - name: aboutPortrait
+    label: Photo de la section « À propos »
+    type: image
+  - name: sessionPhoto
+    label: Photo du cabinet / d'une séance
+    type: image
+  - name: phoneDisplay
+    label: Téléphone (format international, ex. +34 611 93 54 65)
+    type: string
+  - name: email
+    label: Adresse e-mail
+    type: string
+  - name: calendlyUrl
+    label: Lien Calendly (prise de rendez-vous)
+    type: string
+- name: textes-fr
+  label: Textes du site — Français
+  type: file
+  path: almakinesio/src/content/fr.json
+  format: json
+  fields:
+  - name: seoTitle
+    label: Titre dans Google (référencement)
+    type: string
+  - name: seoDescription
+    label: Description dans Google (référencement)
+    type: text
+  - name: nav
+    label: Menu (4 entrées, dans l'ordre)
+    type: string
+    list: true
+  - name: booking
+    label: Bouton « Prendre rendez-vous »
+    type: string
+  - name: eyebrow
+    label: Accueil — petite ligne au-dessus du titre
+    type: string
+  - name: heroTitleLine1
+    label: Accueil — titre (1re ligne)
+    type: string
+  - name: heroTitleEmphasis
+    label: Accueil — titre (2e ligne, en italique)
+    type: string
+  - name: heroText
+    label: Accueil — texte
+    type: text
+  - name: heroCta
+    label: Accueil — lien vers la suite
+    type: string
+  - name: scroll
+    label: Accueil — « Faire défiler »
+    type: string
+  - name: introTag
+    label: La kinésiologie — surtitre
+    type: string
+  - name: introTitle
+    label: La kinésiologie — titre
+    type: string
+  - name: introText
+    label: La kinésiologie — texte
+    type: text
+  - name: quote
+    label: La kinésiologie — citation
+    type: text
+  - name: forTag
+    label: Pour qui ? — surtitre
+    type: string
+  - name: forTitle
+    label: Pour qui ? — titre
+    type: string
+  - name: forIntro
+    label: Pour qui ? — introduction
+    type: text
+  - name: needs
+    label: Pour qui ? — cartes
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+    fields:
+    - name: title
+      label: Titre
+      type: string
+    - name: text
+      label: Texte
+      type: text
+  - name: sessionTag
+    label: Une séance — surtitre
+    type: string
+  - name: sessionTitle
+    label: Une séance — titre
+    type: string
+  - name: sessionIntro
+    label: Une séance — introduction
+    type: text
+  - name: steps
+    label: Une séance — étapes
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+    fields:
+    - name: title
+      label: Titre
+      type: string
+    - name: text
+      label: Texte
+      type: text
+  - name: aboutTag
+    label: À propos — surtitre
+    type: string
+  - name: aboutTitle
+    label: À propos — titre
+    type: string
+  - name: aboutText1
+    label: À propos — 1er paragraphe
+    type: text
+  - name: aboutText2
+    label: À propos — 2e paragraphe
+    type: text
+  - name: signature
+    label: À propos — signature
+    type: string
+  - name: location
+    label: À propos — lieu sous la signature
+    type: string
+  - name: placeTag
+    label: Le cabinet — surtitre
+    type: string
+  - name: placeTitle
+    label: Le cabinet — titre
+    type: string
+  - name: placeText
+    label: Le cabinet — texte
+    type: text
+  - name: placePhotoAlt
+    label: Le cabinet — description de la photo (accessibilité)
+    type: string
+  - name: placeDirections
+    label: Le cabinet — lien itinéraire
+    type: string
+  - name: placeMapTitle
+    label: Le cabinet — titre de la carte (accessibilité)
+    type: string
+  - name: bookingTag
+    label: Rendez-vous — surtitre
+    type: string
+  - name: bookingTitle
+    label: Rendez-vous — titre
+    type: string
+  - name: bookingText
+    label: Rendez-vous — texte
+    type: text
+  - name: bookingFallback
+    label: Rendez-vous — lien de secours
+    type: string
+  - name: shareTag
+    label: Flyer — surtitre
+    type: string
+  - name: shareTitle
+    label: Flyer — titre
+    type: string
+  - name: shareText
+    label: Flyer — texte
+    type: text
+  - name: shareDownload
+    label: Flyer — « Télécharger »
+    type: string
+  - name: shareFile
+    label: Flyer — légende du fichier
+    type: string
+  - name: flyerLine1
+    label: Flyer — vignette, 1re ligne
+    type: string
+  - name: flyerLine2
+    label: Flyer — vignette, 2e ligne
+    type: string
+  - name: flyerPdf
+    label: Flyer — fichier PDF
+    type: file
+  - name: contactTag
+    label: Contact — surtitre
+    type: string
+  - name: contactTitle
+    label: Contact — titre
+    type: string
+  - name: contactText
+    label: Contact — texte
+    type: text
+  - name: call
+    label: Contact — bouton « Appeler »
+    type: string
+  - name: email
+    label: Contact — bouton WhatsApp
+    type: string
+  - name: whatsappMessage
+    label: Contact — message WhatsApp pré-rempli
+    type: text
+  - name: shareContactTitle
+    label: Formulaire — titre
+    type: string
+  - name: shareContactText
+    label: Formulaire — texte
+    type: text
+  - name: shareSubject
+    label: Formulaire — libellé « Objet »
+    type: string
+  - name: shareSubjectPlaceholder
+    label: Formulaire — exemple d'objet
+    type: string
+  - name: shareMessage
+    label: Formulaire — libellé « Message »
+    type: string
+  - name: shareMessagePlaceholder
+    label: Formulaire — exemple de message
+    type: string
+  - name: shareSend
+    label: Formulaire — bouton d'envoi
+    type: string
+  - name: shareDirect
+    label: Formulaire — « Ou écrivez-moi à »
+    type: string
+  - name: addressLabel
+    label: Adresse — titre
+    type: string
+  - name: address
+    label: Adresse — texte (une ligne par ligne)
+    type: text
+  - name: appointment
+    label: Adresse — mention « Sur rendez-vous »
+    type: string
+  - name: footer
+    label: Pied de page — phrase
+    type: string
+  - name: disclaimer
+    label: Pied de page — avertissement médical
+    type: text
+  - name: menu
+    label: Mobile — « Menu »
+    type: string
+  - name: close
+    label: Mobile — « Fermer »
+    type: string
+- name: textes-es
+  label: Textes du site — Espagnol
+  type: file
+  path: almakinesio/src/content/es.json
+  format: json
+  fields:
+  - name: seoTitle
+    label: Titre dans Google (référencement)
+    type: string
+  - name: seoDescription
+    label: Description dans Google (référencement)
+    type: text
+  - name: nav
+    label: Menu (4 entrées, dans l'ordre)
+    type: string
+    list: true
+  - name: booking
+    label: Bouton « Prendre rendez-vous »
+    type: string
+  - name: eyebrow
+    label: Accueil — petite ligne au-dessus du titre
+    type: string
+  - name: heroTitleLine1
+    label: Accueil — titre (1re ligne)
+    type: string
+  - name: heroTitleEmphasis
+    label: Accueil — titre (2e ligne, en italique)
+    type: string
+  - name: heroText
+    label: Accueil — texte
+    type: text
+  - name: heroCta
+    label: Accueil — lien vers la suite
+    type: string
+  - name: scroll
+    label: Accueil — « Faire défiler »
+    type: string
+  - name: introTag
+    label: La kinésiologie — surtitre
+    type: string
+  - name: introTitle
+    label: La kinésiologie — titre
+    type: string
+  - name: introText
+    label: La kinésiologie — texte
+    type: text
+  - name: quote
+    label: La kinésiologie — citation
+    type: text
+  - name: forTag
+    label: Pour qui ? — surtitre
+    type: string
+  - name: forTitle
+    label: Pour qui ? — titre
+    type: string
+  - name: forIntro
+    label: Pour qui ? — introduction
+    type: text
+  - name: needs
+    label: Pour qui ? — cartes
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+    fields:
+    - name: title
+      label: Titre
+      type: string
+    - name: text
+      label: Texte
+      type: text
+  - name: sessionTag
+    label: Une séance — surtitre
+    type: string
+  - name: sessionTitle
+    label: Une séance — titre
+    type: string
+  - name: sessionIntro
+    label: Une séance — introduction
+    type: text
+  - name: steps
+    label: Une séance — étapes
+    type: object
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+    fields:
+    - name: title
+      label: Titre
+      type: string
+    - name: text
+      label: Texte
+      type: text
+  - name: aboutTag
+    label: À propos — surtitre
+    type: string
+  - name: aboutTitle
+    label: À propos — titre
+    type: string
+  - name: aboutText1
+    label: À propos — 1er paragraphe
+    type: text
+  - name: aboutText2
+    label: À propos — 2e paragraphe
+    type: text
+  - name: signature
+    label: À propos — signature
+    type: string
+  - name: location
+    label: À propos — lieu sous la signature
+    type: string
+  - name: placeTag
+    label: Le cabinet — surtitre
+    type: string
+  - name: placeTitle
+    label: Le cabinet — titre
+    type: string
+  - name: placeText
+    label: Le cabinet — texte
+    type: text
+  - name: placePhotoAlt
+    label: Le cabinet — description de la photo (accessibilité)
+    type: string
+  - name: placeDirections
+    label: Le cabinet — lien itinéraire
+    type: string
+  - name: placeMapTitle
+    label: Le cabinet — titre de la carte (accessibilité)
+    type: string
+  - name: bookingTag
+    label: Rendez-vous — surtitre
+    type: string
+  - name: bookingTitle
+    label: Rendez-vous — titre
+    type: string
+  - name: bookingText
+    label: Rendez-vous — texte
+    type: text
+  - name: bookingFallback
+    label: Rendez-vous — lien de secours
+    type: string
+  - name: shareTag
+    label: Flyer — surtitre
+    type: string
+  - name: shareTitle
+    label: Flyer — titre
+    type: string
+  - name: shareText
+    label: Flyer — texte
+    type: text
+  - name: shareDownload
+    label: Flyer — « Télécharger »
+    type: string
+  - name: shareFile
+    label: Flyer — légende du fichier
+    type: string
+  - name: flyerLine1
+    label: Flyer — vignette, 1re ligne
+    type: string
+  - name: flyerLine2
+    label: Flyer — vignette, 2e ligne
+    type: string
+  - name: flyerPdf
+    label: Flyer — fichier PDF
+    type: file
+  - name: contactTag
+    label: Contact — surtitre
+    type: string
+  - name: contactTitle
+    label: Contact — titre
+    type: string
+  - name: contactText
+    label: Contact — texte
+    type: text
+  - name: call
+    label: Contact — bouton « Appeler »
+    type: string
+  - name: email
+    label: Contact — bouton WhatsApp
+    type: string
+  - name: whatsappMessage
+    label: Contact — message WhatsApp pré-rempli
+    type: text
+  - name: shareContactTitle
+    label: Formulaire — titre
+    type: string
+  - name: shareContactText
+    label: Formulaire — texte
+    type: text
+  - name: shareSubject
+    label: Formulaire — libellé « Objet »
+    type: string
+  - name: shareSubjectPlaceholder
+    label: Formulaire — exemple d'objet
+    type: string
+  - name: shareMessage
+    label: Formulaire — libellé « Message »
+    type: string
+  - name: shareMessagePlaceholder
+    label: Formulaire — exemple de message
+    type: string
+  - name: shareSend
+    label: Formulaire — bouton d'envoi
+    type: string
+  - name: shareDirect
+    label: Formulaire — « Ou écrivez-moi à »
+    type: string
+  - name: addressLabel
+    label: Adresse — titre
+    type: string
+  - name: address
+    label: Adresse — texte (une ligne par ligne)
+    type: text
+  - name: appointment
+    label: Adresse — mention « Sur rendez-vous »
+    type: string
+  - name: footer
+    label: Pied de page — phrase
+    type: string
+  - name: disclaimer
+    label: Pied de page — avertissement médical
+    type: text
+  - name: menu
+    label: Mobile — « Menu »
+    type: string
+  - name: close
+    label: Mobile — « Fermer »
+    type: string
